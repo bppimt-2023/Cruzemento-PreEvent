@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cruzamento"21 || Pre-Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="http://fonts.cdnfonts.com/css/avengero" rel="stylesheet">
+    <link href="http://fonts.cdnfonts.com/css/heroes-assemble" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel = "icon" href = 
+"logo_2.png" 
+        style="width: 90px; height: 90px;"type = "image/x-icon">
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        
+        <label class="logo"> <img src="logo_3.png"  srcset="" ></label>
+        <ul>
+          <li><a  href="#">Home</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a class="active" href="#">Pre-Events</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">Memories</a></li>
+        </ul>
+      </nav>
+      <div class="container" style="z-index: -1;">
+        <h1 class="main"><center>Wait  Guys !!</center>
+         </h1>
+         <h2 class="title" style="z-index: -1;">It goona start Soon ...</h2>
+    </div>
+    <div class="container">
+      <center>
+    <h1 style="font-size: 100px; color: #fff;font-family: 'Heroes Assemble', sans-serif; letter-spacing: 2px; ">
+      <a href="" class="typewrite" data-period="2000" data-type='[ "#wake_and_chase", "#itians_assemble", "#ithype"]' style="color: #fff;">
+        <span class="wrap" style="color: #fff;"></span>
+      </a>
+    </h1></center>
+  </div>
+  <br>
+  <br>
+  
+  <div class="footer-dark" >
+    <footer><center>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>CRUZEMENTO</h3>
+                    
+                </div>
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>IT Departmental Freshers</h3>
+                    
+                </div>
+                
+                <div class="col item social"><a href="https://www.facebook.com/Cruzamento-221-103869858595291/"><i class="icon ion-social-facebook"></i></a><a href="mailto: cruzamento.official.21@gmail.com"><i class="icon ion-social-google-outline"></i></a><a href="https://www.instagram.com/cruzamento_2.21/?utm_medium=copy_link"><i class="icon ion-social-instagram"></i></a></div>
+            </div>
+            <hr style="margin-top: 15px;">
+            <p class="copyright">cruzemento.official©2021</p></center>
+        </div>
+    </footer>
+</body>
+<script>
+ var TxtType = function(el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
+        this.isDeleting = false;
+    };
+
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+        this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+        this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+
+        if (this.isDeleting) { delta /= 2; }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+        delta = this.period;
+        this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+        this.isDeleting = false;
+        this.loopNum++;
+        delta = 500;
+        }
+
+        setTimeout(function() {
+        that.tick();
+        }, delta);
+    };
+
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i=0; i<elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+              new TxtType(elements[i], JSON.parse(toRotate), period);
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+</script>
+</html>
